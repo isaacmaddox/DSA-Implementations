@@ -72,6 +72,11 @@ public:
       }
    }
 
+   /**
+    * Create a linked list with a vector of values
+    *
+    * @param values The vector of values
+    */
    LinkedList(std::vector<T> &values) : head(nullptr), tail(nullptr), size(0)
    {
       for (auto value : values)
@@ -251,6 +256,9 @@ public:
       --this->size;
    }
 
+   /**
+    * Clear the linked list
+    */
    void clear()
    {
       while (this->head != nullptr)
