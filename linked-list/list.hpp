@@ -85,6 +85,14 @@ public:
       }
    }
 
+   ~LinkedList()
+   {
+      while (this->head != nullptr)
+      {
+         this->remove(0);
+      }
+   }
+
    /**
     * Get the value of the node at an index
     *
@@ -94,35 +102,7 @@ public:
     */
    T at(int idx)
    {
-      if (idx > this->size - 1 || idx < 0)
-      {
-         throw std::out_of_range("Invalid index");
-      }
-
-      Node<T> *val = this->head;
-
-      for (int i = 0; i < idx; ++i)
-      {
-         val = val->next;
-      }
-
-      return val->value;
-   }
-
-   /**
-    * Get the value of the last node in the linked list, also known as the tail
-    *
-    * @returns The value of the last node in the linked list
-    * @throws std::out_of_range - If the list is empty
-    */
-   T last() const
-   {
-      if (this->size == 0)
-      {
-         throw std::out_of_range("Invalid index");
-      }
-
-      return this->tail->value;
+      return nodeAt(idx)->value;
    }
 
    /**
@@ -139,6 +119,22 @@ public:
       }
 
       return this->head->value;
+   }
+
+   /**
+    * Get the value of the last node in the linked list, also known as the tail
+    *
+    * @returns The value of the last node in the linked list
+    * @throws std::out_of_range - If the list is empty
+    */
+   T last() const
+   {
+      if (this->size == 0)
+      {
+         throw std::out_of_range("Invalid index");
+      }
+
+      return this->tail->value;
    }
 
    /**

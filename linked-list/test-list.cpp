@@ -30,6 +30,8 @@ int main()
    list.append(7);
    list.prepend(6);
 
+   list.remove(1);
+
    printList(list);
 
    list.clear();
@@ -39,7 +41,8 @@ int main()
    cout << endl
         << "Array List Constructor" << endl;
 
-   LinkedList<std::string> list2(new std::string[2]{"Hello", "World"}, 2);
+   std::string arr[2] = {"Hello", "World "};
+   LinkedList<std::string> list2(arr, 2);
 
    printList(list2);
 
